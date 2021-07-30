@@ -1,6 +1,6 @@
 import random
 
-start = input("Do you want to play 21? ").lower()
+start = input("Do you want to play 21 (y/n)? ").lower()
 
 if start[0] == "y":
     player_chips = 500
@@ -61,6 +61,7 @@ if start[0] == "y":
             if player_score == 21 and dealer_score != 21:
                 print("\nBlackjack! You win")
                 player_chips += bet * 2.5
+                print(f"\nYou won {bet * 2.5} chips")
                 print(f"New Balance: {player_chips}")
             else:
                 print(f"\nYour score: {player_score}\n")
@@ -83,11 +84,13 @@ if start[0] == "y":
                                 if player_score > dealer_score and dealer_score < 21:
                                     print(f"\nBlackjack! You win with {player_score}")
                                     player_chips += bet * 2
+                                    print(f"\nYou won {bet * 2} chips")
                                     print(f"New Balance: {player_chips}\n")
                                     break
                                 else:
                                     print("Tie!")
                                     player_chips += bet
+                                    print(f"\nYou won {bet} chips")
                                     print(f"New Balance: {player_chips}\n")
                                     break
                         elif player_score > 21:
@@ -106,12 +109,14 @@ if start[0] == "y":
                             if player_score > dealer_score:
                                 print("You win!")
                                 player_chips += bet * 2
-                                print(f"\nNew Balance: {player_chips}")
+                                print(f"\nYou won {bet * 2} chips")
+                                print(f"New Balance: {player_chips}")
                                 break
                             elif dealer_score > 21:
                                 print("You win, dealer busted")
                                 player_chips += bet * 2
-                                print(f"\nNew Balance: {player_chips}")
+                                print(f"\nYou won {bet * 2} chips")
+                                print(f"New Balance: {player_chips}")
                                 break
                             elif player_score < dealer_score:
                                 print(f"Dealer wins, with a score of {dealer_score}")
@@ -120,6 +125,7 @@ if start[0] == "y":
                                 print("Bust, dealer wins")
                             else:
                                 print("Tie")
+                                print(f"You won {bet} chips")
                                 break
         elif start_game == "c":
             print(f"\nCongrats! you won {player_chips} chips!")
